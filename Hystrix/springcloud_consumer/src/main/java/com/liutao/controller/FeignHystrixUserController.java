@@ -2,6 +2,7 @@ package com.liutao.controller;
 
 import com.liutao.controller.client.UserClient;
 import com.liutao.entity.User;
+import com.liutao.exception.LinkException;
 import com.wordnik.swagger.annotations.Api;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class FeignHystrixUserController {
      */
     @RequestMapping(value = "/userInfo/{username}",method = RequestMethod.GET)
     @ResponseBody
-    public User getUserInfo(@PathVariable("username") String username) {
+    public User getUserInfo(@PathVariable("username") String username){
         User user = userClient.getUserInfo(username);
         if(user!=null){
             logger.info("user.getAge():"+user.getAge());

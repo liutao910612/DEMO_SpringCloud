@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Component
 public class UserClientHyStrix implements UserClient {
     @Override
-    public User getUserInfo(@RequestParam("username") String username) {
+    public User getUserInfo(@RequestParam("username") String username)  {
         return new User();
     }
 }

@@ -35,6 +35,7 @@ public class RibbonHystrixUserController {
      */
     @RequestMapping(value = "/hystrix/ribbon/userinfo/{username}",method = RequestMethod.GET)
     public User getUserInfoOfHystrixRibbon(@PathVariable("username") String username){
+        logger.debug("enter getUserInfoOfHystrixRibbon");
         return userService.getUserInfo(username);
     }
 }
