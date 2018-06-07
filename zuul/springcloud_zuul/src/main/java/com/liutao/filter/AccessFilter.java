@@ -63,6 +63,7 @@ public class AccessFilter extends ZuulFilter {
             ctx.setResponseStatusCode(401);
             return null;
         }
+
         return null;
     }
 }
