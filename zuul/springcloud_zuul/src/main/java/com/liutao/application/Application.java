@@ -30,4 +30,13 @@ public class Application {
 	public AccessFilter accessFilter(){
 		return new AccessFilter();
 	}
+
+	/**
+	 * 实例化error过滤器
+	 * @return
+	 */
+	@Bean
+	public ErrorFilter errorFilter(){
+		return new ErrorFilter();
+	}
 }
