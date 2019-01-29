@@ -1,12 +1,10 @@
-package com.liutao.application;
+package com.liutao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.context.annotation.ComponentScan;
+import zipkin.server.EnableZipkinServer;
 
 /**
  * 程序启动类
@@ -16,9 +14,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @see
  * @since
  */
-@EnableDiscoveryClient
+@EnableZipkinServer
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
-@ComponentScan(basePackages={"com.liutao"})
 public class Application {
 
 	public static void main(String[] args) {

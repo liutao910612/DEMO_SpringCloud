@@ -1,9 +1,6 @@
 package com.liutao.controller;
 
-import com.liutao.controller.client.UserClient;
 import io.swagger.annotations.Api;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -22,19 +19,18 @@ import java.util.Map;
 @Api(value = "test")
 @RequestMapping("/liutao/v1")
 public class UserController {
-
     @Autowired
-    private UserClient userClient;
+    private RestTemplate restTemplate;
 
     /**
-     * 使用Feign
+     * 使用Ribbon实现客户端负载均衡的消费者
      * @param username
      * @return
      */
-    @RequestMapping(value = "/feign/userInfo/{username}",method = RequestMethod.GET)
+    @RequestMapping(value = "/ribbon/userInfo/{username}",method = RequestMethod.GET)
     @ResponseBody
-    public Map<String,Object> getUserInfo(@PathVariable("username") String username) {
-        Map<String,Object> user = userClient.getUserInfo(username);
+    public Map<String,Object> getUserInfoOfRibbon(@PathVariable("username") String username) {
+        Map<String,Object> user = restTemplate.getForEntity("http://service-2/liutao/userInfo?username="+username, Map.class).getBody();
         return user;
     }
 
