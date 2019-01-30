@@ -2,7 +2,6 @@ package com.liutao.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cloud.sleuth.Span;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
