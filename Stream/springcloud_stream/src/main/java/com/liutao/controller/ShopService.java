@@ -20,7 +20,7 @@ public class ShopService {
     @Autowired
     private GreetingSource greetingSource;
 
-    @PostMapping("/msg")
+    @GetMapping("/msg")
     public String sendShopMessage(@RequestParam("content") String content) {
         greetingSource.greet(content);
         return "发送成功";
